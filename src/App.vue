@@ -23,28 +23,59 @@ export default {
       score: 0,
       level: 1,
       board: [],
+      currentPiece: null,
+      gameInterval: null,
     }
   },
   methods: {
     startGame() {
-
+      
     }
   }
+    initBoard() {
+      this.board = Array(BOARD_HEIGHT).fill().map(() => Array(BOARD_SIZE).fill(0));
+    },
+
+    spawnPiece() {
+      this.currentPiece = {
+        shape: [[1,1,1,1]],
+        x: Math.floor(BOARD_WIDTH / 2) - 2,
+        y: 0
+      };
+    },
+    gameLoop() {
+      if (this.canMovePiece(0, 1)) {
+        this.movePiece(0, 1);
+      } else {
+        this.placePiece();
+        this.clearLines();
+        this.spawnPiece();
+        if (!this.canMovePiece(0, 0)) {
+          this.gameOver();
+        }
+      }
+    },
+    canMovePiece(dx, dy) {
+
+    },
+    movePiece(dx, dy) {
+      this.currentPiece.x += dx;
+      this.currentPiece.y += dy;
+    },
+    placePiece() {
+
+    },
+    clearLines() {
+
+    },
+    gameOver() {
+      clearInterval(this.gameInterval);
+      alert('Game Over!')
+    }
+
 }
 </script>
 
 <style scoped>
-.tetris {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.game-board {
-  
-}
-
-.game-info {
-
-}
 </style>
