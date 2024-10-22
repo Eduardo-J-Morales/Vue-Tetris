@@ -32,7 +32,7 @@ export default {
 }
 
 button {
-  font-size: 1.2em;
+  font-size: 2em;
   padding: 10px 20px;
   margin-top: 20px;
 }

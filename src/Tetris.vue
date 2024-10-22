@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      playerName: 'Your Name', // Replace 'Your Name' with your actual name
+      playerName: 'Eduardo Morales', // Replace 'Your Name' with your actual name
       gameStarted: false
     }
   },
