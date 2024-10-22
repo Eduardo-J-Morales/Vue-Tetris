@@ -1,37 +1,35 @@
 <template>
   <div class="tetris-container">
     <h1>Tetris</h1>
-    <div class="game-board">
-      <!-- Game board will be added here later -->
-    </div>
-    <div class="player-name">Player: {{ playerName }}</div>
     <StartScreen 
       v-if="!gameStarted" 
       :playerName="playerName" 
       @start-game="startGame"
     />
+    <GameBoard v-if="gameStarted" />
+    <div class="player-name">Player: {{ playerName }}</div>
   </div>
 </template>
 
 <script>
 import StartScreen from './components/StartScreen.vue'
+import GameBoard from './components/GameBoard.vue'
 
 export default {
   name: 'Tetris',
   components: {
-    StartScreen
+    StartScreen,
+    GameBoard
   },
   data() {
     return {
       playerName: 'Your Name', // Replace 'Your Name' with your actual name
       gameStarted: false
-      // We'll add more data properties as we progress
     }
   },
   methods: {
     startGame() {
       this.gameStarted = true
-      // We'll add game initialization logic here later
     }
   }
 }
