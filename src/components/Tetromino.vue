@@ -19,12 +19,18 @@ export default {
     color: {
       type: String,
       default: '#000'
+    },
+    position: {
+      type: Object,
+      required: true
     }
   },
   computed: {
     style() {
       return {
-        '--tetromino-color': this.color
+        '--tetromino-color': this.color,
+        left: `${this.position.x * 30}px`,
+        top: `${this.position.y * 30}px`
       }
     }
   }
